@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FCM</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form id="form" action="" class="form col-md-4">
+                <div class="form-group">
+                    <label for="algo">Alhorithmus ucenia</label>
+                    <select class="form-control" name="algo" id="algo">
+                        <option default value="NHL">Algoritmus Nelineárneho Hebbovho učenia (NHL)</option>
+                        <option value="iNHL">Algoritmus zdokonaleného Nelineárneho Hebbovho učenia (iNHL)</option>
+                        <option value="AHL">Algoritmus aktívneho Hebbovho učenia (AHL)</option>
+                    </select>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label for="vaha">Vaha</label>
+                    <select class="form-control" name="vaha" id="vaha">
+                        <option value="0">Mala</option>
+                        <option value="1">Stredna vel'ka</option>
+                        <option value="2">Vel'ka</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mastnota">Mastnota</label>
+                    <select class="form-control" name="mastnota" id="mastnota">
+                        <option value="0">Mala</option>
+                        <option value="1">Stredna vel'ka</option>
+                        <option value="2">Vel'ka</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="znecistenie">Znecistenie</label>
+                    <select class="form-control" name="znecistenie" id="znecistenie">
+                        <option value="0">Male</option>
+                        <option value="1">Stredne vel'ke</option>
+                        <option value="2">Vel'ke</option>
+                    </select>
+                </div>
+
+                <br>
+                <button id="reset" type="reset" onclick="onReset()" class="btn btn-secondary">Reset</button>
+                <button id="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <div class="col-md-1"></div>
+
+            <div class="col-md">
+                <div class="result">
+                    Cas: <strong id="result">-- min</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="efcm.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
