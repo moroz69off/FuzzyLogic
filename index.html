@@ -8,13 +8,22 @@
 </head>
 <body>
 	<div id="" class="container">
+
+
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">FuzzyLogic</h1>
+		<p class="lead">This project demonstrates fuzzy logic in the context of Hebb machine learning</p>
+	</div>
+</div>
+
+
 		<div id="" class="row">
 			<div id="" class="col">
 				<div id="" class="jumbotron jumbotron-fluid">
 					<div id="" class="container-fluid">
-						<h1>FuzzyLogic</h1>
 						<!-- form -->
-						<form>
+						<form id="m_form">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Method selection</label>
 									<select class="custom-select" id="learn_OptionSelect">
@@ -31,16 +40,51 @@
 							<div class="form-group">
 
 							</div>
-							<button type="submit" class="btn btn-primary">Reset</button>
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn btn-primary" id="reset">Reset</button>
+							<button type="submit" class="btn btn-success" id="main">Compute</button>
 						</form>
 						<!-- and form -->
 					</div>
 				</div>
 			</div>
 			<div id="" class="col">
-				<div id="" class="graph">
-					
+				<div id="m_graph" class="graph">
+
+
+
+<table class="table table-dark" id="t_result">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Input</th>
+			<th scope="col">Output</th>
+			<th scope="col">Weight</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+		<th scope="row">1</th>
+			<td>0,78</td>
+			<td>0,78</td>
+			<td>0,78</td>
+		</tr>
+		<tr>
+			<th scope="row">2</th>
+			<td>0,123</td>
+			<td>0,123</td>
+			<td>0,123</td>
+		</tr>
+		<tr>
+			<th scope="row">3</th>
+			<td>78,22</td>
+			<td>78,22</td>
+			<td>78,22</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
 				</div>
 			</div>
 		</div>	
@@ -48,7 +92,6 @@
 <script src="js/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
 <script src="js/popper.min.js" crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
-<script src="js/expert.js" crossorigin="anonymous"></script>
 <script src="js/main.js" crossorigin="anonymous"></script>
 </body>
 </html>
