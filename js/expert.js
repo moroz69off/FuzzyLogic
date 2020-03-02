@@ -1,8 +1,7 @@
 'use strict';
-// expert
+// expert 9 22
 const EXPERT =
-`
-9       22     
+`     
 22	0	1
 23	1	1
 24	2	1
