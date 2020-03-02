@@ -1,73 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FCM</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+ <head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>FuzzyLogic</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <form id="form" action="" class="form col-md-4">
-                <div class="form-group">
-                    <label for="algo">Alhorithmus ucenia</label>
-                    <select class="form-control" name="algo" id="algo">
-                        <option default value="NHL">Algoritmus Nelineárneho Hebbovho učenia (NHL)</option>
-                        <option value="iNHL">Algoritmus zdokonaleného Nelineárneho Hebbovho učenia (iNHL)</option>
-                        <option value="AHL">Algoritmus aktívneho Hebbovho učenia (AHL)</option>
-                        <option value="EXPERT">Expert vahy</option>
-                    </select>
-                </div>
+<style type="text/css">
+	.graph{
+		width: 100%;
+	}
+</style>
+	<div id="" class="container">
+		<div id="" class="row">
+			<div id="" class="col">
+				<div id="" class="jumbotron jumbotron-fluid">
+					<div id="" class="container-fluid">
+						<h1>FuzzyLogic</h1>
+						<!-- form -->
+						<form>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Method selection</label>
+									<select class="custom-select" id="learn_OptionSelect">
+										<option selected>Select ...</option>
+										<option value="1">Hebb Nonlinear</option>
+										<option value="2">Hebb's Advanced Nonlinear</option>
+										<option value="3">Active Hebb</option>
+									</select>
+								<small id="emailHelp" class="form-text text-muted">Choosing a learning method</small>
+							</div>
+							<div class="form-group">
 
-                <hr>
+							</div>
+							<div class="form-group">
 
-                <div class="form-group">
-                    <label for="vaha">Vaha</label>
-                    <select class="form-control" name="vaha" id="vaha">
-                        <option value="0">Malá</option>
-                        <option value="1">Stredne veľká</option>
-                        <option value="2">Veľka</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mastnota">Mastnota</label>
-                    <select class="form-control" name="mastnota" id="mastnota">
-                        <option value="0">Malá</option>
-                        <option value="1">Stredne veľká</option>
-                        <option value="2">Veľká</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="znecistenie">Znecistenie</label>
-                    <select class="form-control" name="znecistenie" id="znecistenie">
-                        <option value="0">Malé</option>
-                        <option value="1">Stredne veľké</option>
-                        <option value="2">Veľké</option>
-                    </select>
-                </div>
-
-                <br>
-                <button id="reset" type="reset" onclick="onReset()" class="btn btn-secondary">Reset</button>
-                <button id="submit" class="btn btn-primary">Submit</button>
-            </form>
-
-            <div class="col-md-1"></div>
-
-            <div class="col-md">
-                <div class="result">
-                    Cas: <strong id="result">-- min</strong>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <script src="efcm.js"></script>
-    <script src="app.js"></script>
+							</div>
+							<button type="submit" class="btn btn-primary">Reset</button>
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+						<!-- and form -->
+					</div>
+				</div>
+			</div>
+			<div id="" class="col">
+				<div id="" class="graph">
+					
+				</div>
+			</div>
+		</div>	
+	</div>
+<script src="js/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="js/popper.min.js" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
