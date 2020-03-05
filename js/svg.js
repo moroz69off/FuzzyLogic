@@ -11,6 +11,7 @@ rect.setAttributeNS(null, 'height', 100);
 rect.setAttributeNS(null, 'fill', '#f06');
 circ.setAttributeNS(null, 'cx', 100);
 circ.setAttributeNS(null, 'cy', 100);
-circ.setAttributeNS(null, 'r', 100);
+circ.setAttributeNS(null, 'r', 15);
 circ.setAttributeNS(null, 'fill', '#0ff');
 svg.appendChild(rect);
+svg.appendChild(circ);
