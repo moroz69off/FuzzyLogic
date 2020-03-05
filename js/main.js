@@ -3,6 +3,7 @@ var reset = document.getElementById('reset');
 var m_form = document.getElementById('m_form');
 var main_btn = document.getElementById('main');
 var t_result = document.getElementById('t_result');
+var option_learn_select = document.getElementById('learn_OptionSelect');
 
 var compute_data = 'a b c';
 
