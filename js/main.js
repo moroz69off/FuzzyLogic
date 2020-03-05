@@ -7,6 +7,7 @@ var t_result = document.getElementById('t_result');
 var compute_data = 'a b c';
 
 main_btn.onclick = Compute;
+reset.onclick = ClearTable;
 
 function Compute () {
 	ClearTable();
