@@ -1,76 +1,69 @@
 <!doctype html>
 <html lang="en">
- <head>
+<head>
+	<!-- temp -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, max-age=0, must-revalidate"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<!-- temp -->
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>FuzzyLogic</title>
 </head>
 <body>
-	<div id="" class="container">
-
-
-<div class="jumbotron jumbotron-fluid">
-	<div class="container">
-		<h1 class="display-4">FuzzyLogic</h1>
-		<p class="lead">This project demonstrates fuzzy logic in the context of Hebb machine learning</p>
-	</div>
-</div>
-
-
-		<div id="" class="row">
-			<div id="" class="col">
-				<div id="" class="jumbotron jumbotron-fluid">
-					<div id="" class="container-fluid">
-						<!-- form -->
-						<form id="m_form" onsubmit="return false;">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Method selection</label>
+	<div id="root" class="container">
+		<div class="container">
+			<div id="header" class="jumbotron jumbotron-fluid">
+				<header>
+					<h1 class="display-4">FuzzyLogic</h1>
+					<p class="lead">This project demonstrates fuzzy logic in the context of Hebb machine learning</p>
+				</header>
+			</div>
+			<div id="" class="row">
+				<div id="" class="col">
+					<div id="" class="jumbotron jumbotron-fluid">
+						<div id="" class="container-fluid">
+							<!-- form -->
+							<form id="m_form" onsubmit="return false;">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Method selection</label>
 									<select class="custom-select" id="learn_OptionSelect">
-										<!--<option selected>Select ...</option>-->
 										<option value="1">Hebb Nonlinear</option>
 										<option value="2">Hebb's Advanced Nonlinear</option>
 										<option value="3">Active Hebb</option>
 									</select>
-								<small id="emailHelp" class="form-text text-muted">Choosing a learning method</small>
-							</div>
-							<div class="form-group">
+									<small id="emailHelp" class="form-text text-muted">Choosing a learning method</small>
+								</div>
+								<div class="form-group">
 
-							</div>
-							<div class="form-group">
+								</div>
+								<div class="form-group">
 
-							</div>
-							<button type="submit" class="btn btn-primary" id="reset">Reset</button>
-							<button type="submit" class="btn btn-success" id="main">Compute</button>
-						</form>
-						<!-- and form -->
+								</div>
+								<input type="button" class="btn btn-primary" id="reset" value="Reset">
+								<input type="button" class="btn btn-success" id="main" value="Compute">
+							</form>
+							<!-- and form -->
+						</div>
 					</div>
 				</div>
-			</div>
-			<div id="" class="col">
-				<div id="m_graph" class="graph">
-
-
-
-<table class="table table-dark" id="t_result">
-	<thead>
-		<tr>
-			<th scope="col">Input</th>
-			<th scope="col">Output</th>
-			<th scope="col">Weight</th>
-		</tr>
-	</thead>
-	<tbody>
-		
-	</tbody>
-</table>
-
-
-
+				<div id="" class="col">
+					<table class="table table-dark" id="t_result">
+						<thead>
+							<tr>
+								<th scope="col">Input</th>
+								<th scope="col">Output</th>
+								<th scope="col">Weight</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
-		<div id="" class="svg_container">
+		<div id="" class="container">
 			<div id="" class="row">
 				<div id="" class="col">
 					<div id="drawing" class="jumbotron">
