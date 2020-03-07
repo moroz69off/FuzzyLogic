@@ -4,14 +4,22 @@ var svg = document.createElementNS(ns, 'svg');
 svg.setAttributeNS(null, 'width', '100%');
 svg.setAttributeNS(null, 'height', '100%');
 div.appendChild(svg);
-var rect = document.createElementNS(ns, 'rect');
+
 var circ = document.createElementNS(ns, 'circle');
-rect.setAttributeNS(null, 'width', 100);
-rect.setAttributeNS(null, 'height', 100);
-rect.setAttributeNS(null, 'fill', '#f06');
-circ.setAttributeNS(null, 'cx', 100);
-circ.setAttributeNS(null, 'cy', 33);
-circ.setAttributeNS(null, 'r', 25);
+circ.setAttributeNS(null, 'cx', 50);
+circ.setAttributeNS(null, 'cy', 30);
+circ.setAttributeNS(null, 'r', 10);
 circ.setAttributeNS(null, 'fill', '#0ff');
-svg.appendChild(rect);
 svg.appendChild(circ);
+
+
+function CreatePoint (x, y) {
+	var circ = document.createElementNS(ns, 'circle');
+	circ.setAttributeNS(null, 'cx', x);
+	circ.setAttributeNS(null, 'cy', y);
+	circ.setAttributeNS(null, 'r', 10);
+	circ.setAttributeNS(null, 'fill', '#0ff');
+	svg.appendChild(circ);
+}
+
+CreatePoint(100,70);
