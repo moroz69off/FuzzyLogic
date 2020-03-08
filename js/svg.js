@@ -20,7 +20,6 @@ function DrawPoint (x, y) {
 	svg.appendChild(circle);
 }
 
-
 function SetPointsCoordinates (topPointsNumber, bottomPointsNumber) { // params: how many points in the top row, how many points in the bottom row
 	var svgFrameWidth = svg.clientWidth;
 	var svgFrameHeigth = svg.clientHeight;
@@ -33,7 +32,6 @@ function SetPointsCoordinates (topPointsNumber, bottomPointsNumber) { // params:
 	for (var i=0; i<bottomPointsNumber; i++) {
 		var Point = new Object({x: intervalOfPoints * (i + 1), y:svgFrameHeigth - 20, name: 'bottom_point_' + (i + 1)});
 		PointsBottom.push(Point);
-
 	}
 }
 
@@ -46,7 +44,7 @@ function DrawPoints () {
 		DrawPoint(PointsBottom[i].x, PointsBottom[i].y);
 	}
 
-	//Ofset();
+	//Ofset(); // ofset row-points to center
 }
 
 SetPointsCoordinates(9, 22);
