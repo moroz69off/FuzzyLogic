@@ -22,10 +22,9 @@ function SetPointsCoordinates () {
 	var svgFrameHeigth = svg.clientHeight;
 	var intervalPoint = svgFrameWidth/23;
 	for (var i = 0; i < 9; i++) {
-		var Point = new Object({x: 20 * (i + 1), y:20});
+		var Point = new Object({x: (20 + intervalPoint) * (i + 1), y:20});
 		Points.push(Point);
 	}
-	console.log(Points);
 }
 
 SetPointsCoordinates();
