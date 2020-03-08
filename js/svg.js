@@ -5,12 +5,11 @@ svg.setAttributeNS(null, 'width', '100%');
 svg.setAttributeNS(null, 'height', '100%');
 div.appendChild(svg);
 
-var PointsTopper = [];
+var PointsTop = [];
 var PointsBottom = [];
-var radius;
-//if (svg.clientWidth > 888) {radius = 8;} else {radius = svg.clientWidth / 60;}
-radius = svg.clientWidth / 64;
-console.log('svg.clientWidth: '+svg.clientWidth+', compute radius: '+(svg.clientWidth/64) +', radius: '+radius);                       //DEBUG
+var radius = svg.clientWidth / 64;
+var intervalOfPoints;
+console.log('svg.clientWidth: '+svg.clientWidth+', compute radius: '+(svg.clientWidth/64) +', radius: '+radius); // ====================== // D•E•B•U•G
 function DrawPoint (x, y) {
 	var circle = document.createElementNS(ns, 'circle');
 	circle.setAttributeNS(null, 'cx', x);
@@ -20,31 +19,40 @@ function DrawPoint (x, y) {
 	svg.appendChild(circle);
 }
 
+
 function SetPointsCoordinates (topPointsNumber, bottomPointsNumber) { // params: how many points in the top row, how many points in the bottom row
 	var svgFrameWidth = svg.clientWidth;
 	var svgFrameHeigth = svg.clientHeight;
-	var intervalOfPoints = svgFrameWidth/40 + radius; // distance between points
-	console.log('interval '+intervalOfPoints)                                // debug
+	intervalOfPoints = svgFrameWidth/40 + radius; // distance between points
+	console.log('interval '+intervalOfPoints) // =========================================================================================== // D•E•B•U•G
 	for (var i = 0; i < topPointsNumber; i++) { 
-		var Point = new Object({x: intervalOfPoints * (i + 1), y: 20, name: 'top_point_' + (i + 1)});
-		PointsTopper.push(Point);
+		var Point = new Object({x: intervalOfPoints * (i + 1), y: 18, name: 'top_point_' + (i + 1)});
+		PointsTop.push(Point);
 	}
 	for (var i=0; i<bottomPointsNumber; i++) {
-		var Point = new Object({x: intervalOfPoints * (i + 1), y:svgFrameHeigth - 20, name: 'bottom_point_' + (i + 1)});
+		var Point = new Object({x: intervalOfPoints * (i + 1), y:svgFrameHeigth - 18, name: 'bottom_point_' + (i + 1)});
 		PointsBottom.push(Point);
 	}
 }
 
+function OffsetRowPointsToCenter () {
+	var rowSize = PointsTop[PointsTop.length - 1].x - PointsTop[0].x;
+	var sizeATopRowOffset = (svg.clientWidth / 2) - (rowSize / 2 + intervalOfPoints);
+	for (var i = 0; i < PointsTop.length; i++) {
+		PointsTop[i].x += sizeATopRowOffset;
+	}
+}
+
 function DrawPoints () {
-	for (var i=0; i<PointsTopper.length; i++) {
-		DrawPoint(PointsTopper[i].x, PointsTopper[i].y);
+	OffsetRowPointsToCenter();
+
+	for (var i=0; i<PointsTop.length; i++) {
+		DrawPoint(PointsTop[i].x, PointsTop[i].y);
 	}
 
 	for (var i=0; i<PointsBottom.length; i++) {
 		DrawPoint(PointsBottom[i].x, PointsBottom[i].y);
 	}
-
-	//Ofset(); // ofset row-points to center
 }
 
 SetPointsCoordinates(9, 22);
