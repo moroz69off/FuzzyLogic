@@ -2,14 +2,14 @@ var ns = 'http://www.w3.org/2000/svg';
 var div = document.getElementById('drawing');
 var svg = document.createElementNS(ns, 'svg');
 svg.setAttributeNS(null, 'width', '100%');
-svg.setAttributeNS(null, 'height', '100%');
+svg.setAttributeNS(null, 'height', '256');
 div.appendChild(svg);
 
 var PointsTop = [];
 var PointsBottom = [];
 var radius = svg.clientWidth / 64;
 var intervalOfPoints;
-console.log('svg.clientWidth: '+svg.clientWidth+', compute radius: '+(svg.clientWidth/64) +', radius: '+radius); // ====================== // D•E•B•U•G
+
 function DrawPoint (x, y) {
 	var circle = document.createElementNS(ns, 'circle');
 	circle.setAttributeNS(null, 'cx', x);
@@ -24,7 +24,7 @@ function SetPointsCoordinates (topPointsNumber, bottomPointsNumber) { // params:
 	var svgFrameWidth = svg.clientWidth;
 	var svgFrameHeigth = svg.clientHeight;
 	intervalOfPoints = svgFrameWidth/40 + radius; // distance between points
-	console.log('interval '+intervalOfPoints) // =========================================================================================== // D•E•B•U•G
+	
 	for (var i = 0; i < topPointsNumber; i++) { 
 		var Point = new Object({x: intervalOfPoints * (i + 1), y: 18, name: 'top_point_' + (i + 1)});
 		PointsTop.push(Point);
