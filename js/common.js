@@ -1,7 +1,7 @@
 var connectMatrix = [,]; //connection matrix (double)
 var compoundListingMatrix = [,];// compound matrix for listing (double)
 var learnParameterMatrix = [,]; // learning parameter matrix (double)
-var LearnExamples = [,]; // learning examples matrix (3000, 31), (double)
+var learnExamples = [,]; // learning examples matrix (3000, 31), (double)
 
 fetch('data/trenovacka.txt')
 	.then(response => response.text())
