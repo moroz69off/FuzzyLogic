@@ -10,5 +10,5 @@ fetch('data/trenovacka.txt')
 function Trenovacka (text_arg) {
 	var data_points = text_arg.split('\n');
 	data_points.splice(0, 1);
-	alert(data_points[0]);
+	console.log(data_points[0]);
 }
