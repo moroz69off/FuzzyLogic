@@ -5,5 +5,5 @@
 
 ![alt text](https://github.com/moroz69off/FuzzyLogic/blob/master/hebbFunc.PNG?raw=true "Hebb function")
 
-где k  - номер итерации, а       - коэффициент скорости обучения.
+где k  - номер итерации, η - коэффициент скорости обучения.
 
