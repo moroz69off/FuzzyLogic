@@ -10,14 +10,30 @@ function ConmputeLinearTimeWash () {
 		greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Not Greasy" &&
 		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Small";
 	let Short =
-		greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Medium" &&
-		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Small";
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Medium" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Small") ||
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Not Greasy" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Medium");
 	let Medium =
-		greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Medium" &&
-		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Medium";
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Medium" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Medium") ||
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Not Greasy" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Large") ||
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Greasy" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Small");
+	let Long =
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Greasy" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Medium") ||
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Medium" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Large") ;
+	let VeryLong =
+		(greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Greasy" &&
+		dirt_QualitySelect.options[dirt_QualitySelect.selectedIndex].value == "Large");
 
 
 	if (VeryShort) {time_result_span.innerText = wash_time[0];}
-	if (Short) {time_result_span.innerText = wash_time[1];}
-	if (Medium) {time_result_span.innerText = wash_time[2];}
+	if (Short)     {time_result_span.innerText = wash_time[1];}
+	if (Medium)    {time_result_span.innerText = wash_time[2];}
+	if (Long)      {time_result_span.innerText = wash_time[3];}
+	if (VeryLong)  {time_result_span.innerText = wash_time[4];}
 }
