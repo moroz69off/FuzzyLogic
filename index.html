@@ -15,10 +15,31 @@
 	<body>
 		<div id="root" class="container-fluid">
 			<div id="" class="container">
-				<div id="header" class="jumbotron">
+				<div id="header" class="jumbotron jumbotron-fluid">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<h4>Hebbian Learning Algorithm</h4>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Linear <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Non linear</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Pricing</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
 					<header>
-						<h1 class="display-4">FuzzyLogic</h1>
-						<p class="lead">This project demonstrates fuzzy logic in the context of Hebb machine learning</p>
+						<h1 class="display-5">Fuzzy logic</h1>
+						<p class="lead">This project demonstrates fuzzy logic in the context of a simulation of a washing machine</p>
 					</header>
 				</div>
 				<div id="" class="row">
@@ -27,13 +48,27 @@
 							<div id="" class="container-fluid">
 								<form id="m_form" onsubmit="return false;">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Method selection</label>
-										<select class="custom-select" id="learn_OptionSelect">
-											<option value="1">Hebb Nonlinear</option>
-											<option value="2">Hebb's Advanced Nonlinear</option>
-											<option value="3">Active Hebb</option>
+
+										<label for="greasy_OptionSelect">Mud type</label>
+										<select class="custom-select" id="greasy_OptionSelect">
+											<option value="1">Not Greasy</option>
+											<option value="2">Medium</option>
+											<option value="3">Greasy</option>
 										</select>
-										<small id="emailHelp" class="form-text text-muted">Please select a teaching method</small>
+										<small id="weight_OptionHelp" class="form-text text-muted">Please select a mud type</small>
+
+										<label for="dirt_QualitySelect">Dirt quality</label>
+										<select class="custom-select" id="dirt_QualitySelect">
+											<option value="1">Small</option>
+											<option value="2">Medium</option>
+											<option value="3">Large</option>
+										</select>
+										<small id="dirt_QualityHelp" class="form-text text-muted">Please select a dirt quality</small>
+
+										<label for="wash_Weight">Washing weight</label>
+										<input type="range" class="custom-range" min="0" max="5" step="1" value="1" id="wash_Weight">
+										<small id="wash_WeightHelp" class="form-text text-muted">Please select a washing weight (1 - 5 kg.)</small>
+
 									</div>
 									<div class="form-group">
 										<!--  -->
@@ -42,43 +77,49 @@
 										<!--  -->
 									</div>
 									<input type="button" class="btn btn-primary" id="reset" value="Reset">
-									<input type="button" class="btn btn-success" id="main" value="Compute">
+									<input type="button" class="btn btn-success" id="compute" value="Compute">
 								</form>
 							</div>
 						</div>
 					</div>
 					<div id="" class="col">
-						<table class="table table-dark" id="t_result">
-							<thead>
-								<tr>
-									<th scope="col">Input</th>
-									<th scope="col">Output</th>
-									<th scope="col">Weight</th>
-								</tr>
-							</thead>
-							<tbody>
-								<!--  -->
-							</tbody>
-						</table>
+						<h2>Selected Options</h2>
+						<p>Mud type: <span class="" id="greasy_option">Not Greasy</span></p>
+						<p>Dirt quality: <span class="" id="quality_option">Small</span></p>
+						<p>Washing weight: <span class="" id="weight_option">1</span>kg</p>
+						<hr>
+						<h2>Calculation result</h2>
+						<h5 id="result">Washing time: <span class="badge badge-secondary">Very Short</span></h5>
+						<h5 id="result">Amount of water: <span class="badge badge-secondary">2.2 liters</span></h5>
 					</div>
 				</div>
 			</div>
-			<div id="" class="container">
+			<!-- <div id="" class="container">
 				<div id="" class="jumbotron jumbotron-fluid">
 					<div id="" class="row">
 						<div id="drawing" class="col">
-							<!-- svg drawing -->
+							
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	<script src="js/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
 	<script src="js/popper.min.js" crossorigin="anonymous"></script>
 	<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 	<script src="js/svg.js" crossorigin="anonymous"></script>
 	<script src="js/main.js" crossorigin="anonymous"></script>
+	<script src="js/expert.js" crossorigin="anonymous"></script>
 	<script src="js/common.js" crossorigin="anonymous"></script>
 	<script src="js/nonLinearHebbEducation.js" crossorigin="anonymous"></script>
 	</body>
 </html>
+<!-- 
+
+Правило Хебба основано на правиле, согласно которому весовой вектор увеличивается пропорционально входному и обучающему сигналам, то есть выходному. Веса увеличиваются путем добавления произведения ввода и вывода к старому весу.
+
+W (новый) = w (старый) + x * y
+
+Применение правил Хебба заключается в проблемах ассоциации, классификации и категоризации.
+
+-->
