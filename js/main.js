@@ -10,7 +10,10 @@ var compute_data = 'a b c';
 
 compute_btn.onclick = Compute;
 
-wash_WeightRange.oninput = function () {wash_Weight_span.innerText = wash_WeightRange.value;}
+wash_WeightRange.oninput = function () {
+	wash_Weight_span.innerText = wash_WeightRange.value;
+	ComputeWater();
+}
 
 function Compute () {
 	
