@@ -43,4 +43,4 @@
 * IF качество грязи Large и тип грязи Medium, THEN Время стирки Medium.
 * IF качество грязи Small и тип грязи Non-Greasy, THEN Время стирки Very Short.
 * IF качество грязи Medium И Тип грязи Non-Greasy, THEN Время стирки Medium.
-* IF качество грязи Large и тип грязи Greasy, THEN Время стирки Very Short.
+* IF качество грязи Large и тип грязи Greasy, THEN Время стирки Short.
