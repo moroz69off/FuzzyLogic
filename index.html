@@ -23,17 +23,11 @@
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNav">
-		<ul class="navbar-nav">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Linear <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Non linear</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Pricing</a>
-			</li>
-		</ul>
+		<div id="" class="btn-group" role="group"  aria-label="Button group">
+			<a class="btn btn-secondary" href="#" role="button">Linear</a>
+			<a class="btn btn-primary" href="#" role="button">Non linear</a>
+			<a class="btn btn-primary" href="#" role="button">Improved algorithm</a>
+		</div>
 	</div>
 </nav>
 
@@ -89,8 +83,8 @@
 						<p>Washing weight: <span class="" id="weight_option">1</span>kg</p>
 						<hr>
 						<h2>Calculation result</h2>
-						<h5 id="result">Washing time: <span class="badge badge-secondary">Very Short</span></h5>
-						<h5 id="result">Amount of water: <span class="badge badge-secondary">2.2 liters</span></h5>
+						<h5>Washing time: <span class="badge badge-secondary">Very Short</span></h5>
+						<h5 id="">Amount of water: <span id="water_result" class="badge badge-secondary">2.2 liters</span></h5>
 					</div>
 				</div>
 			</div>
@@ -109,8 +103,9 @@
 	<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 	<script src="js/svg.js" crossorigin="anonymous"></script>
 	<script src="js/main.js" crossorigin="anonymous"></script>
-	<script src="js/expert.js" crossorigin="anonymous"></script>
-	<script src="js/common.js" crossorigin="anonymous"></script>
+	<!-- <script src="js/expert.js" crossorigin="anonymous"></script> -->
+	<!-- <script src="js/common.js" crossorigin="anonymous"></script> -->
+	<script src="js/linearHebbEducation.js" crossorigin="anonymous"></script>
 	<script src="js/nonLinearHebbEducation.js" crossorigin="anonymous"></script>
 	</body>
 </html>
