@@ -1,17 +1,19 @@
 var ns = 'http://www.w3.org/2000/svg';
-var div = document.getElementById('drawing');
+//var div = document.getElementById('drawing');
 var svg = document.createElementNS(ns, 'svg');
 svg.setAttributeNS(null, 'width', '100%');
 svg.setAttributeNS(null, 'height', '256');
-div.appendChild(svg);
+//div.appendChild(svg);
 
-var PointsTop = [];
-var PointsBottom = [];
+var Lines = ['blabla'];
+var NodesTop = [];
+var NodesBottom = [];
+
 var radius = svg.clientWidth / 64;
-var intervalOfPoints;
+var intervalOfNodes;
 
-function DrawPoint (x, y) {
-	var circle = document.createElementNS(ns, 'circle');
+function DrawNode (x, y) {
+	let circle = document.createElementNS(ns, 'circle');
 	circle.setAttributeNS(null, 'cx', x);
 	circle.setAttributeNS(null, 'cy', y);
 	circle.setAttributeNS(null, 'r', radius);
@@ -19,42 +21,55 @@ function DrawPoint (x, y) {
 	svg.appendChild(circle);
 }
 
-
-function SetPointsCoordinates (topPointsNumber, bottomPointsNumber) { // params: how many points in the top row, how many points in the bottom row
+function SetNodesCoordinates (topNodesNumber, bottomNodesNumber) { // params: how many Nodes in the top row, how many Nodes in the bottom row
 	var svgFrameWidth = svg.clientWidth;
 	var svgFrameHeigth = svg.clientHeight;
-	intervalOfPoints = svgFrameWidth/40 + radius; // distance between points
+	intervalOfNodes = svgFrameWidth/40 + radius; // distance between Nodes
+	for (let i = 0; i < topNodesNumber; i++) { 
+		var Node = new Object({x: intervalOfNodes * (i + 1), y: 18, name: 'top_Node_' + (i + 1)});
+		NodesTop.push(Node);
+	}
+	for (let i=0; i<bottomNodesNumber; i++) {
+		var Node = new Object({x: intervalOfNodes * (i + 1), y:svgFrameHeigth - 18, name: 'bottom_Node_' + (i + 1)});
+		NodesBottom.push(Node);
+	}
+}
+
+function OffsetRowNodesToCenter () {
+	var rowSize = NodesTop[NodesTop.length - 1].x - NodesTop[0].x;
+	var sizeATopRowOffset = (svg.clientWidth / 2) - (rowSize / 2 + intervalOfNodes);
+	for (let i = 0; i < NodesTop.length; i++) {
+		NodesTop[i].x += sizeATopRowOffset;
+	}
+	rowSize = NodesBottom[NodesBottom.length - 1].x - NodesBottom[0].x;
+	var sizeABottomRowOffset = (svg.clientWidth / 2) - (rowSize / 2 + intervalOfNodes);
+	for (let i = 0; i < NodesBottom.length; i++) {
+		NodesBottom[i].x += sizeABottomRowOffset;
+	}
+}
+
+function DrawNodes () {
+	OffsetRowNodesToCenter();
+
+	for (let i=0; i<NodesTop.length; i++) {
+		DrawNode(NodesTop[i].x, NodesTop[i].y);
+	}
+
+	for (let i=0; i<NodesBottom.length; i++) {
+		DrawNode(NodesBottom[i].x, NodesBottom[i].y);
+	}
+}
+
+function DrawLines() {
+	for (let i = 0; i < Lines.length; i++) {
+		DrawLine();
+	}
+}
+
+function DrawLine() {
 	
-	for (var i = 0; i < topPointsNumber; i++) { 
-		var Point = new Object({x: intervalOfPoints * (i + 1), y: 18, name: 'top_point_' + (i + 1)});
-		PointsTop.push(Point);
-	}
-	for (var i=0; i<bottomPointsNumber; i++) {
-		var Point = new Object({x: intervalOfPoints * (i + 1), y:svgFrameHeigth - 18, name: 'bottom_point_' + (i + 1)});
-		PointsBottom.push(Point);
-	}
 }
 
-function OffsetRowPointsToCenter () {
-	var rowSize = PointsTop[PointsTop.length - 1].x - PointsTop[0].x;
-	var sizeATopRowOffset = (svg.clientWidth / 2) - (rowSize / 2 + intervalOfPoints);
-	for (var i = 0; i < PointsTop.length; i++) {
-		PointsTop[i].x += sizeATopRowOffset;
-	}
-}
+SetNodesCoordinates(9, 22);
 
-function DrawPoints () {
-	OffsetRowPointsToCenter();
-
-	for (var i=0; i<PointsTop.length; i++) {
-		DrawPoint(PointsTop[i].x, PointsTop[i].y);
-	}
-
-	for (var i=0; i<PointsBottom.length; i++) {
-		DrawPoint(PointsBottom[i].x, PointsBottom[i].y);
-	}
-}
-
-SetPointsCoordinates(9, 22);
-
-DrawPoints();
+DrawNodes();
