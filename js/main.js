@@ -1,8 +1,7 @@
 'use strict';
-var reset = document.getElementById('reset');
+var reset_btn = document.getElementById('reset');
 var m_form = document.getElementById('m_form');
 var compute_btn = document.getElementById('compute');
-var result = document.getElementById('result');
 var option_learn_select = document.getElementById('learn_OptionSelect');
 var wash_WeightRange = document.getElementById('wash_Weight');
 var wash_Weight_span = document.getElementById('weight_option');
@@ -25,6 +24,11 @@ greasy_range.setAttribute('step', '0.001');
 greasy_range.setAttribute('value', '0.256');
 greasy_range.setAttribute('type', 'range');
 greasy_range.setAttribute('id', 'greasy_range_input');
+greasy_range.oninput = function () {
+	greasy_option_span.innerText = 
+		((parseFloat(greasy_range.value))*100)
+			.toString().substring(0, 4) + " % greasy";
+}
 
 var dirt_range = document.createElement('input');
 dirt_range.className = "custom-range";
@@ -34,10 +38,16 @@ dirt_range.setAttribute('step', '0.001');
 dirt_range.setAttribute('value', '0.256');
 dirt_range.setAttribute('type', 'range');
 dirt_range.setAttribute('id', 'dirt_range_input');
+dirt_range.oninput = function () {
+	quality_option_span.innerText = 
+		((parseFloat(dirt_range.value))*100)
+			.toString().substring(0, 4) + " % dirt";
+}
 
 var compute_method = 0;
-
 var compute_data = 'a\tb\tc';
+
+reset_btn.onclick = ResetApp;
 
 compute_btn.onclick = Compute;
 
@@ -81,18 +91,22 @@ function GreasyOptionSelect () {
 }
 
 function SetLinearMethod () {
-	compute_method = 0;
 	window.history.go(0);
+	window.location.reload(true);
+	compute_method = 0;
 }
 
 function SetNonLinearMethod () {
+	wash_WeightRange.setAttribute('step', '0.001');
 	greasy_OptionSelect.replaceWith(greasy_range);
 	dirt_QualitySelect.replaceWith(dirt_range);
-	//greasy_OptionSelect.setAttribute('style', 'display: none;');replaceWith
 	compute_method = 1;
 }
 
 function SetImprovedMethod () {
+	wash_WeightRange.setAttribute('step', '0.001');
+	greasy_OptionSelect.replaceWith(greasy_range);
+	dirt_QualitySelect.replaceWith(dirt_range);
 	compute_method = 2;
 }
 
@@ -100,6 +114,18 @@ function Compute () {
 	if (compute_method == 0) {
 		ConmputeLinearTimeWash();
 	}
+	else if (compute_method == 1) {
+		ConmputeNoLinear ();
+	}
+	else if (compute_method == 2) {
+		ComputeImprovedAlgorithm();
+	}
+	else {
+		return;
+	}
 }
 
-
+function ResetApp () {
+	window.history.go(0);
+	window.location.reload(true);
+}
