@@ -6,4 +6,3 @@ var dirt_init = Math.random();
 function ConmputeNoLinear() {
 	console.log(greasy_init + ' ' + dirt_init);
 }
-
