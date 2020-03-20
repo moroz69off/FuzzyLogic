@@ -23,6 +23,26 @@ function ConmputeNoLinear() {
 	}
 
 	function ViewResult () {
-		setTimeout(() => time_result_span.innerText = ((Wout * 1000) + minWashTime).toString().substring(0, 4) + ' minutes', 777);
+		let result_string_variant = ["Very Short ", "Short ", "Medium ", "Long ", "Very Long "];
+		let result_string = ((Wout * 1000) + minWashTime).toString().substring(0, 4);
+		let result_string_concat = "";
+
+		if (((Wout * 1000) + minWashTime) < 30) {
+			result_string_concat = result_string_variant[0] + result_string;
+		}
+		if (((Wout * 1000) + minWashTime) >= 30 && ((Wout * 1000) + minWashTime) < 45) {
+			result_string_concat = result_string_variant[1] + result_string;
+		}
+		if (((Wout * 1000) + minWashTime) >= 45 && ((Wout * 1000) + minWashTime) < 55) {
+			result_string_concat = result_string_variant[2] + result_string;
+		}
+		if (((Wout * 1000) + minWashTime) >= 55 && ((Wout * 1000) + minWashTime) < 70) {
+			result_string_concat = result_string_variant[3] + result_string;
+		}
+		if (((Wout * 1000) + minWashTime) >= 70) {
+			result_string_concat = result_string_variant[4] + result_string;
+		}
+
+		setTimeout(() => time_result_span.innerText = result_string_concat + ' minutes', 555);
 	}
 }
