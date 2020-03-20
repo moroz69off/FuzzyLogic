@@ -5,7 +5,7 @@ function ComputeWater () {
 }
 
 function ConmputeLinearTimeWash () {
-	let wash_time = ["Very Short", "Short", "Medium", "Long", "Very Long"];
+	let wash_time = ["Very Short (20 min.)", "Short (30 min.)", "Medium (40 min.)", "Long (50 min.)", "Very Long (60 min.)"];
 
 	let VeryShort = 
 		greasy_OptionSelect.options[greasy_OptionSelect.selectedIndex].value == "Not Greasy" &&
@@ -38,3 +38,4 @@ function ConmputeLinearTimeWash () {
 	if (Long)      {time_result_span.innerText = wash_time[3];}
 	if (VeryLong)  {time_result_span.innerText = wash_time[4];}
 }
+//linearHebbEducation.js
