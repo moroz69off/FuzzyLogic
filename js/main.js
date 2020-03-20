@@ -18,10 +18,10 @@ var greasy_select = document.getElementById('greasy_select');
 
 var greasy_range = document.createElement('input');
 greasy_range.className = "custom-range";
-greasy_range.setAttribute('min', '0');
+greasy_range.setAttribute('min', '0.005');
 greasy_range.setAttribute('max', '1');
-greasy_range.setAttribute('step', '0.001');
-greasy_range.setAttribute('value', '0.256');
+greasy_range.setAttribute('step', '0.0001');
+greasy_range.setAttribute('value', '0.2');
 greasy_range.setAttribute('type', 'range');
 greasy_range.setAttribute('id', 'greasy_range_input');
 greasy_range.oninput = function () {
@@ -32,10 +32,10 @@ greasy_range.oninput = function () {
 
 var dirt_range = document.createElement('input');
 dirt_range.className = "custom-range";
-dirt_range.setAttribute('min', '0');
+dirt_range.setAttribute('min', '0.005');
 dirt_range.setAttribute('max', '1');
-dirt_range.setAttribute('step', '0.001');
-dirt_range.setAttribute('value', '0.256');
+dirt_range.setAttribute('step', '0.0001');
+dirt_range.setAttribute('value', '0.2');
 dirt_range.setAttribute('type', 'range');
 dirt_range.setAttribute('id', 'dirt_range_input');
 dirt_range.oninput = function () {
@@ -101,6 +101,7 @@ function SetNonLinearMethod () {
 	greasy_OptionSelect.replaceWith(greasy_range);
 	dirt_QualitySelect.replaceWith(dirt_range);
 	compute_method = 1;
+	SpansUpdate();
 }
 
 function SetImprovedMethod () {
@@ -108,6 +109,17 @@ function SetImprovedMethod () {
 	greasy_OptionSelect.replaceWith(greasy_range);
 	dirt_QualitySelect.replaceWith(dirt_range);
 	compute_method = 2;
+	SpansUpdate();
+}
+
+function SpansUpdate () {
+	InputWeightRange();
+	quality_option_span.innerText = 
+		((parseFloat(dirt_range.value))*100)
+			.toString().substring(0, 4) + " % dirt";
+	greasy_option_span.innerText = 
+		((parseFloat(greasy_range.value))*100)
+			.toString().substring(0, 4) + " % greasy";
 }
 
 function Compute () {
@@ -115,7 +127,7 @@ function Compute () {
 		ConmputeLinearTimeWash();
 	}
 	else if (compute_method == 1) {
-		ConmputeNoLinear ();
+		ConmputeNoLinear();
 	}
 	else if (compute_method == 2) {
 		ComputeImprovedAlgorithm();
